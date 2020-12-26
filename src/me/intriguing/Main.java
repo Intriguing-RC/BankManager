@@ -2,19 +2,20 @@ package me.intriguing;
 
 public class Main {
 
+    private static BankManager manager;
+
     public static void main(String[] args) {
-	    BankManager manager = new BankManager();
-	    Bank superiorBank = new Bank("Superior Bank");
-	    BankAccount kenny = new BankAccount("Kenny");
+        manager = new BankManager();
+        Bank superiorBank = new Bank("Superior Bank");
+        BankAccount kenny = new BankAccount("Kenny");
+        // Add banks to Manager and add account to bank
+        manager.addBank(superiorBank);
+        superiorBank.addAccount(kenny);
 
-	    // Add banks to Manager and add account to bank
-	    manager.addBank(superiorBank);
-	    superiorBank.addAccount(kenny);
-
-	    // List banks
-		manager.listBanks();
-		// List accounts
-		superiorBank.listAccounts();
+        // List banks
+        manager.listBanks();
+        // List accounts
+        superiorBank.listAccounts();
         System.out.println("Kenny has balance of $" + kenny.getBalance() + "!");
 
         // Should be okay.
